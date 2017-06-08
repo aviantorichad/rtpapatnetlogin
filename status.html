@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>RTPapat.Net hotspot > status</title>
+$(if refresh-timeout)
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"></meta>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<style type="text/css">
+<!--
+textarea,input,select {
+	background-color: #FDFBFB;
+	border: 1px #BBBBBB solid;
+	padding: 2px;
+	margin: 1px;
+	font-size: 14px;
+	color: #808080;
+}
+input.btn {
+color:#ffffff;
+cursor:pointer;
+background:#4CB37F;
+border:1px solid #4CB37F;
+width:100px;
+}
+
+input.btn:hover {
+color:#222222;
+background:lightgreen;
+}
+.tabula{
+ 
+border-width: 1px; 
+border-collapse: collapse; 
+border-color: #c1c1c1; 
+background-color: #ffffff;
+font-family: verdana;
+font-size: 11px;
+color: #222222;
+}
+
+body{ color: #222222; font-size: 12px; font-family: verdana; background:#007733;}
+
+a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 12px; }
+a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
+img {border: none;}
+td { font-size: 12px; padding: 4px;}
+
+-->
+</style>
+<script language="JavaScript">
+<!--
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+	if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+	popup = open('$(link-advert)', 'hotspot_advert', '');
+	setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+	if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+	window.close();
+	return false;
+    }
+//-->
+</script>
+</head>
+<body bottommargin="0" topmargin="0" leftmargin="0" rightmargin="0"
+$(if advert-pending == 'yes')
+	onLoad="openAdvert()"
+$(endif)
+>
+<table width="100%" height="100%">
+
+<tr>
+<td align="center" valign="middle">
+<form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+<table border="1" class="tabula">
+$(if login-by == 'trial')
+	<br><div style="text-align: center;">Welcome trial user!</div><br>
+$(elif login-by != 'mac')
+	<br>
+	<a href="morelink.html" title="Link Website Lainnya"><div style="text-align: center;color:#fff;background:#222;font-size:24px;margin-bottom:0;" class="dLink">Hello <b>$(username)!</b></div></a>
+	<a href="http://server.rtpapat.net/RTPAPAT.NET/ubahpassword.php" title="Ganti Password"><div style="text-align: center;color:#fff;background:#444444;font-size:12px;margin-top:1px;" class="dLink">Ganti Password</div></a>
+	<br>
+$(endif)
+	<tr><td align="right">IP Address:</td><td>$(ip)</td></tr>
+	<tr><td align="right">Bytes up/down:</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+$(if session-time-left)
+	<tr style="background:yellow;"><td align="right">Aktif / <span style="font-size:18px;font-weight:bold;color:red">Sisa</span>:</td><td>$(uptime) / <span style="font-size:18px;font-weight:bold;color:red">$(session-time-left)</span></td></tr>
+$(else)
+	<tr><td align="right">Terkoneksi:</td><td>$(uptime)</td></tr>
+$(endif)
+$(if blocked == 'yes')
+	<tr><td align="right">Status:</td><td><div style="color: #FF8080">
+<a href="$(link-advert)" target="hotspot_advert">advertisement</a> required</div></td>
+$(elif refresh-timeout)
+	<tr><td align="right">status refresh:</td><td>$(refresh-timeout)</td>
+$(endif)
+
+</table>
+$(if login-by-mac != 'yes')
+<style>
+.dLink{background:#00aadd;padding:10px;width:100%;max-width:240px;margin-bottom:5px;margin-top:5px;}
+.dLink:hover{background:red;}
+.dLink a{color:#fff;padding:10px;width:220px;font-weight:bold;font-size:18px;width:100%;}
+.dLink a:hover{background:red;}
+</style>
+<div class="dLink" style="background:#00aadd;"><a href="http://google.com">Google</a></div>
+<div class="dLink" style="background:#00ddaa;"><a href="http://gameskeren.com">Game Online 1</a></div>
+<div class="dLink" style="background:#aadd00;"><a href="http://games.co.id">Game Online 2</a></div>
+<div class="dLink" style="background:#66aa00;"><a href="http://permainan.co.id">Game Online 3</a></div>
+<div class="dLink" style="background:#ddaa00;"><a href="http://server.rtpapat.net/RTPAPAT.NET/forum/">Ngobrol RTPAPAT</a></div>
+<div class="dLink" style="background:#aa00dd;"><a href="http://facebook.com">Facebook</a></div>
+<div class="dLink" style="background:#dd00aa;"><a href="http://youtube.com">Youtube</a></div>
+<div class="dLink" style="background:#00ddff;"><a href="http://warungkost.com">Warungkost</a></div>
+<br>
+<!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+<button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+<!-- end of user manager link -->
+<input type="submit" value="KELUAR" class="btn">
+$(endif)
+</form>
+
+</td>
+</table>
+</body>
+</html>

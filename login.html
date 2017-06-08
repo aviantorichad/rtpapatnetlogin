@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<!--------------------
+LOGIN Mikrotik -
+
+
+--------------------->
+
+<!--META-->
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Masuk Internet</title>
+$(if chap-id)
+		<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+$(endif)
+<style>
+<!--STYLESHEETS-->
+/*******************
+LOGIN FORM STYLESHEET
+by: Angel Nu?ez
+www.airpoint.club
+*******************/
+
+/*******************
+FONTS
+*******************/
+
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
+/*******************
+SELECTION STYLING
+*******************/
+
+::selection {
+	color: #fff;
+	background: #cccccc; /* Safari */
+}
+::-moz-selection {
+	color: #fff;
+	background: #cccccc; /* Firefox */
+}
+
+/*******************
+BODY STYLING
+*******************/
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+}
+
+body {
+	background: rgba(84, 84, 84, 0.99);
+ 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight:300;
+	text-align: left;
+	text-decoration: none;
+	margin:30px auto;
+    background: url(images/RTPAPAT20170325.gif);
+    background-size: cover;
+}
+
+#tameng{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(93, 93, 93, 0.9);
+}
+#wrapper {
+	/* Center wrapper perfectly */
+	width: 300px;
+	height: 400px;
+	/*
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	margin-left: -150px;
+	margin-top: -200px;
+	*/
+	margin:0 auto;
+}
+
+/*
+.gradient {
+	width: 600px;
+	height: 600px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -300px;
+
+	background: url(../images/gradient.png) no-repeat;
+}
+*/
+
+.gradient {
+	/* Center Positioning */
+	width: 600px;
+	height: 600px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -300px;
+
+	/* Fallback */
+	/*
+	background-image: url(../images/gradient.png);
+	background-repeat: no-repeat;
+	*/
+
+}
+
+/*******************
+LOGIN FORM
+*******************/
+
+.login-form {
+	max-width: 300px;
+	margin: 0 auto;
+	position: relative;
+	z-index:6;
+	border-radius:2px;
+
+	background: #232639;
+	border: 0px solid #cccccc;
+    box-shadow: 0px 0px 30px #222;
+}
+
+/*******************
+HEADER
+*******************/
+
+.login-form .header {
+	padding: 40px 30px 30px 30px;
+}
+
+.login-form .header h1 {
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 28px;
+	line-height:34px;
+	color: #0d4882;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	margin-bottom: 10px;
+}
+
+.login-form .header span {
+	font-size: 25px;
+	line-height: 16px;
+    color: #bdbdbd;
+    text-shadow: 1px 1px 0 rgb(13, 72, 130);
+}
+
+/*******************
+CONTENT
+*******************/
+
+.login-form .content {
+	padding: 0 30px 25px 30px;
+}
+
+/* Input field */
+.login-form .content .input {
+	width: 188px;
+	padding: 15px 25px;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+
+	background: #31364a;
+	border: 1px solid #555;
+
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+/* Second input field */
+.login-form .content .password, .login-form .content .pass-icon {
+	margin-top: 25px;
+}
+
+.login-form .content .input:hover {
+	background: #74798a;
+	color: #414848;
+}
+
+.login-form .content .input:focus {
+	background: #dfe9ec;
+	color: #414848;
+
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.user-icon, .pass-icon {
+	width: 46px;
+	height: 47px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	padding-right: 2px;
+	z-index: 3;
+
+}
+
+.user-icon {
+	top:147px; /* Positioning fix for slide-in, got lazy to think up of simpler method. */
+	background: rgba(65,72,72,0.75) url(../images/user-icon.png) no-repeat center;
+}
+
+.pass-icon {
+	top:221px;
+	background: rgba(65,72,72,0.75) url(../images/pass-icon.png) no-repeat center;
+}
+
+/* Animation */
+.input, .user-icon, .pass-icon, .button, .register {
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+}
+
+/*******************
+FOOTER
+*******************/
+
+.login-form .footer {
+	padding: 0px 30px 50px 30px;
+	overflow: auto;
+
+	background: transparent;
+}
+
+/* Login button */
+.login-form .footer .button {
+	float:center;
+	padding: 11px 80px;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	color: #ffffff;
+	text-shadow: 0px 0px 0 rgba(0,0,0,0.25);
+
+	background: #007733;
+	border: 0px solid #0d4882;
+	border-radius: 2px;
+	cursor: pointer;
+	width:100%;
+}
+
+.login-form .footer .button:hover {
+	background: orange;
+	color:#222;
+	border: 0px solid #eb813b;
+
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.login-form .footer .button:focus {
+	position: relative;
+	bottom: -1px;
+
+	background: #eb813b;
+
+	box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+}
+
+/* Register button */
+.login-form .footer .register {
+	display: block;
+	float: right;
+	padding: 10px;
+	margin-right: 20px;
+
+	background: none;
+	border: none;
+	cursor: pointer;
+
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #414848;
+	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
+}
+
+.login-form .footer .register:hover {
+	color: #3f9db8;
+}
+
+.login-form .footer .register:focus {
+	position: relative;
+	bottom: -1px;
+}
+
+*{font-family:arial;}
+</style>
+<!--SCRIPTS-->
+</head>
+<body>
+<!--WRAPPER-->
+<div id="wrapper">
+
+<!--LOGIN FORM-->
+<form name="login-form" class="login-form" action="" method="post">
+
+	<!--HEADER-->
+    <div class="header">
+		<!--TITLE--><center><h1><span style="font-family:Arial;font-weight:bold;"><span style="color:#bdbdbd;font-size:18px;">Masuk</span> Internet</span></center><!--END TITLE-->
+		<!--DESCRIPTION--><!-- <center><h2><span style="font-size:11px;color:#008899;">..::: TEMPAT BERMAIN DAN BELAJAR :::...</span></h2></center> --><!--END DESCRIPTION-->
+	</div>
+<marquee style="color:#fff;background:#900;padding:0;margin:0;margin-top:-20px;margin-bottom:1px;font-size:13px;font-weight:bold;padding:3px 0;" scrollamount="5">
+	--- PERHATIAN!!! JANGAN LUPA GANTI PASSWORD KAMU AGAR TIDAK MUDAH DIPAKAI OLEH ORANG LAIN!... *** Terima kasih sudah mengunjungi RTPAPAT.NET :) *** Mau tahu keseruan yang terjadi sehari-hari di mini warnet RTPAPAT.NET? buka youtube.com terus cari RTPAPAT.NET (ketik RTPAPAT.NET di kotak pencarian youtube) jangan lupa subscribe ya... ---
+</marquee>
+
+<div style="box-shadow:inset 0 0 100px #222;height:100px;width:100%;background:orange;background:url('images/RTPAPAT20170325.gif');background-size:cover;">
+	<!-- <iframe width="100%" height="100" src="http://www.youtube.com/embed/pDMxQP_gkoI" frameborder="0" allowfullscreen></iframe> -->
+</div>
+<marquee style="color:orange;background:#222;padding:5px;font-style:italic;" scrollamount="2">Sedia pulsa all operator - pulsa listrik - voucher game online - gas LPG - kertas HVS/Folio/Kuarto/A4/F4 - terima deposit pulsa - servis komputer/laptop - instalasi linux/windows - pembuatan website - pembuatan program aplikasi - instalasi jaringan # rental pengetikan dan print</marquee><br/>
+<div style="padding:5px;text-align:center;font-size:12px;margin-bottom:10px;background:#aaa;">
+	Untuk mendapatkan username dan password silahkan hubungi no telp.
+	<span style="color:maroon;font-weight:bold;">08123xxxx a/n Mas Cad</span>
+	<br/>
+	<b>** <a href="http://warungkost.com" style="text-decoration:none;color:#008899;">WARUNGKOST STUDIO</a> |
+	<a href="http://server.rtpapat.net/RTPAPAT.NET/forum/" style="text-decoration:none;color:#007733;">NGOBROL GRATIS</a> **</b>
+</div>
+    <!--END HEADER-->
+
+	<!--CONTENT-->
+    <div class="content">
+    <form name="login" action="$(link-login-only)" method="post"
+			$(if chap-id) onSubmit="return doLogin()" $(endif)>
+			<input type="hidden" name="dst" value="$(link-orig)" />
+			<input type="hidden" name="popup" value="true" />
+	<!--USERNAME-->
+	<input name="username" type="text" placeholder="Username" class="input username" value="$(username)" onfocus="this.value=''" size="30" autocomplete="off" /><!--END USERNAME-->
+    <!--PASSWORD-->
+	<input name="password" type="password" placeholder="Password" class="input password" onfocus="this.value=''" size="30" /><!--END PASSWORD-->
+    </div>
+    <!--END CONTENT-->
+    $(if error)
+	<div style="background:yellow;color:red;text-align:center;margin-bottom:10px;padding:5px;font-weight:bold;border-top:4px solid red;border-bottom:2px solid red;">
+		 $(error)
+	</div>
+	$(endif)
+
+    <!--FOOTER-->
+    <div class="footer">
+    <!--LOGIN BUTTON--><input type="submit" name="submit" value="MASUK" class="button" /><!--END LOGIN BUTTON-->
+    </div>
+	<style>
+		#strip{position:absolute;right:0px;bottom:0;z-index:-1;display:none;}
+	</style>
+	<div id="strip">
+		<img src="images/strip.png" width="75px;">
+	</div>
+
+    <!--END FOOTER-->
+
+</form>
+<!--END LOGIN FORM-->
+
+</div>
+<!--END WRAPPER-->
+	<style>
+		#city{width:100%;background:#000;height:146px;position:fixed;left:0;bottom:0;z-index:5;}
+		#gedung{width:100px;background:#000;height:146px;position:fixed;left:100px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:4}
+		#gedung2{width:100px;background:#000;height:106px;position:fixed;left:200px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:3;}
+		#gedung3{width:100px;background:#000;height:76px;position:fixed;left:50px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:3;}
+		#gedung4{width:100px;background:#000;height:346px;position:fixed;right:100px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:4;}
+		#gedung5{width:100px;background:#000;height:106px;position:fixed;right:150px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:4;}
+		#gedung6{width:100px;background:#000;height:76px;position:fixed;right:50px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:4;}
+		#gedung7{width:10px;background:#000;height:406px;position:fixed;right:170px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:3;}
+		#gedung8{width:10px;background:#000;height:366px;position:fixed;right:155px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:3;}
+		#gedung9{width:400px;background:#000;height:86px;position:fixed;right:245px;bottom:100px;box-shadow:7px 7px 5px #555;z-index:3;}
+	</style>
+	<div id="city">
+	</div>
+	<div id="gedung">
+	</div>
+	<div id="gedung2">
+	</div>
+	<div id="gedung3">
+	</div>
+	<div id="gedung4">
+	</div>
+	<div id="gedung5">
+	</div>
+	<div id="gedung6">
+	</div>
+	<div id="gedung7">
+	</div>
+	<div id="gedung8">
+	</div>
+	<div id="gedung9">
+	</div>
+	<div id="tameng"></div>
+</body>
+</html>
+<!--------------------
+LOGIN Mikrotik -
+by: Delfim rodrigues
+
+--------------------->

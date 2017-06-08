@@ -1,0 +1,16 @@
+internal-error = kesalahan pada sistem ($(error-orig))
+config-error = kesalahan pada konfigurasi ($(error-orig))
+not-logged-in = anda belum log in (ip $(ip))
+ippool-empty = tidak mendapatkan alamat ip - ip yang tersedia sedang di gunakan semua
+shutting-down = hotspot sedang di matikan
+user-session-limit = oops, nama $(username) sedang dipakai orang lain
+license-session-limit = batas waktu penggunaan sudah habis ($(error-orig))
+wrong-mac-username = username tidak benar ($(username)): alamat MAC ini bukan punya anda
+chap-missing = web browser tidak bisa merespon (coba lagi, aktifkan JavaScript)
+invalid-username = username atau password tidak benar
+invalid-mac = pengguna $(username) dengan alamat MAC ini tidak di ijinkan login
+uptime-limit = hei $(username), waktu kamu sudah habis
+traffic-limit = pengguna $(username) telah mencapai traffic limit
+radius-timeout = server RADIUS tidak merespon
+auth-in-progress = sudah di autorisasi, silahkan coba lagi
+radius-reply = $(error-orig)
